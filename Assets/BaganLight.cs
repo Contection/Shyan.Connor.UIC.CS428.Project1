@@ -19,7 +19,7 @@ public class BaganLight : MonoBehaviour
 
     void checkOrientation()
     {
-        Debug.Log(cube.transform.localRotation.eulerAngles.x + ", " + cube.transform.localRotation.eulerAngles.y + ", " + cube.transform.localRotation.eulerAngles.z);
+        // Debug.Log(cube.transform.localRotation.eulerAngles.x + ", " + cube.transform.localRotation.eulerAngles.y + ", " + cube.transform.localRotation.eulerAngles.z);
         
         if ((cube.transform.localRotation.eulerAngles.z >= 170) && (cube.transform.localRotation.eulerAngles.z <= 190))
         {
