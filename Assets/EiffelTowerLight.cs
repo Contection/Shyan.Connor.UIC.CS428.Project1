@@ -7,11 +7,13 @@ public class EiffelTowerLight : MonoBehaviour
     public Light lt;
     public GameObject cube;
     int mode;
+    int check;
 
     void Start()
     {
         lt = GetComponent<Light>();
         mode = 0;
+        check = 0;
         InvokeRepeating("checkOrientation", 0f, 1f);
     }
 
@@ -21,15 +23,15 @@ public class EiffelTowerLight : MonoBehaviour
         
         if ((cube.transform.localRotation.eulerAngles.z >= 170) && (cube.transform.localRotation.eulerAngles.z <= 190))
         {
-            while ((cube.transform.localRotation.eulerAngles.z < 350) && (cube.transform.localRotation.eulerAngles.z > 10))
+            check = 1;
+        }
+        if ((cube.transform.localRotation.eulerAngles.z >= 350) || (cube.transform.localRotation.eulerAngles.z <= 10))
+        {
+            if (check == 1)
             {
-                // Reapeat, do nothing
+                check = 0;
+                changeLight();
             }
-            changeLight();
-            // if ((cube.transform.localRotation.eulerAngles.z >= 350) || (cube.transform.localRotation.eulerAngles.z <= 10))
-            // {
-            //     changeLight();
-            // }
         }
     }
 
